@@ -44,9 +44,9 @@ class List:
 
 if __name__ == '__main__':
     L = List()
-    a = Contacto('zsergio', 'lagos', 3245345, 'pico123')
-    b = Contacto('sergiso', 'agos', 32453345, 'picog123')
-    c = Contacto('asergisasdfafsdo', 'agos', 32453345, 'picog123')
+    a = Contacto('b', 'b', 3245345, 'mail1')
+    b = Contacto('c', 'c', 32453345, 'mail2')
+    c = Contacto('a', 'a', 32453345, 'mail3')
     L.insert(a)
     L.insert(b)
     L.insert(c)
