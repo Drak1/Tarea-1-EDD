@@ -12,11 +12,12 @@ class Node:
         self.next = None
 
 
-class List:
+class Libreta:
     def __init__(self):
         self.head = None
         self.tail = None
-        self.nombres = []
+        self.apellidos = []
+        self.contacto = []
 
     def empty(self):
         return self.head == None
@@ -26,27 +27,31 @@ class List:
         if self.empty():
             self.head = Node(contacto)
             self.tail = self.head
-            self.nombres.append(self.head.contacto.nombre)
+            self.contacto.append(self.head)
+            self.apellidos.append(self.head.contacto.apellido)
         else:
             node = Node(contacto)
             node.next_node = self.head
             self.head = node
-            self.nombres.append(node.contacto.nombre)
+            self.contacto.append(self.head)
+            self.apellidos.append(node.contacto.apellido)
 
     def print_list(self):
         if self.empty():
             print("Lista vacia")
         else:
-            self.nombres.sort()
-            for nombres in self.nombres:
-             print(nombres)
+            self.apellidos.sort()
+            for apellidos in self.apellidos:
+             for contacto in self.contacto:
+                if apellidos == contacto.contacto.apellido:
+                    print(contacto.contacto.nombre," ", contacto.contacto.apellido," - " , contacto.contacto.mail," - ",contacto.contacto.telefono )
 
 
 if __name__ == '__main__':
-    L = List()
-    a = Contacto('b', 'b', 3245345, 'mail1')
-    b = Contacto('c', 'c', 32453345, 'mail2')
-    c = Contacto('a', 'a', 32453345, 'mail3')
+    L = Libreta()
+    a = Contacto('Elza', 'Pato', +56954627651, 'Elza.pato@mail.udp.cl')
+    b = Contacto('Alan', 'Turing', +569133132123, 'ElchoroAlan@yahoorespuestas.net')
+    c = Contacto('Homero', 'Chino', +56998746571, 'amantedelacomida83@aol.com')
     L.insert(a)
     L.insert(b)
     L.insert(c)
